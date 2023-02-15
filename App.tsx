@@ -7,11 +7,12 @@
 
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import Main from './src/components/Main';
 
 function App(): JSX.Element {
   return (
     <SafeAreaView>
-      <Text>HELLO WORLD</Text>
+      <Main />
     </SafeAreaView>
   );
 }
