@@ -1,24 +1,25 @@
 import {FlatList, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import colors from '../utils/colors';
-import {AppList, NavigationRoutes} from '../utils/constant';
+import {MainScreen} from '../utils/constant';
 import Card from '../components/Card';
+import {commonStyle} from '../style/commonStyle';
 
 const Main = ({navigation}) => {
   const handleOnPressCard = name => {
     navigation.navigate(name);
   };
   return (
-    <View style={{marginHorizontal: 8}}>
-      <Text style={styles.headerTitle}>Management Application</Text>
+    <View style={commonStyle.backgroundStyle}>
+      <Text style={[commonStyle.titleStyle]}>{MainScreen.mainScreenTitle}</Text>
       <FlatList
-        data={AppList}
-        renderItem={({item}) => (
+        data={MainScreen.AppList}
+        renderItem={({item, index}) => (
           <Card
             title={item.name}
             subTitle="Card"
             image={item.uri}
             onPressCard={() => handleOnPressCard(item.navigation)}
+            index={index}
           />
         )}
         keyExtractor={item => item.id}
@@ -30,11 +31,4 @@ const Main = ({navigation}) => {
 
 export default Main;
 
-const styles = StyleSheet.create({
-  headerTitle: {
-    color: colors.gray50,
-    textAlign: 'center',
-    marginBottom: 16,
-    fontSize: 26,
-  },
-});
+const styles = StyleSheet.create({});

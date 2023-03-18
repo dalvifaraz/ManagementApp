@@ -1,4 +1,5 @@
 export default colors = {
+  gray1000: '#222222',
   gray900: '#1C1C1C',
   gray800: '#2B2B2B',
   gray700: '#444444',
