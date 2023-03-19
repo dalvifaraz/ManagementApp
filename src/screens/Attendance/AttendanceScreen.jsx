@@ -1,18 +1,18 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {commonStyle} from '../../style/commonStyle';
-import {AttendanceScreen} from '../../utils/constant';
+import {AttendanceScreenConstant} from '../../utils/constant';
 
-const Attendance = () => {
+const AttendanceScreen = () => {
   return (
     <View style={commonStyle.backgroundStyle}>
       <Text style={[commonStyle.titleStyle]}>
-        {AttendanceScreen.attendanceScreenTitle}
+        {AttendanceScreenConstant.title}
       </Text>
     </View>
   );
 };
 
-export default Attendance;
+export default AttendanceScreen;
 
 const styles = StyleSheet.create({});

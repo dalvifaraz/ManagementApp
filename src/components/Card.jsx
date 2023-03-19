@@ -1,20 +1,35 @@
 import {Image, Pressable, StyleSheet, Text} from 'react-native';
 import React from 'react';
 import colors from '../utils/colors';
+import {fontStyle} from '../style/fontStyle';
 
-const Card = ({image, title, subTitle, onPressCard, index}) => {
+const Card = ({
+  image,
+  title,
+  subTitle,
+  onPressCard,
+  index,
+  containerStyle,
+  imageStyle,
+}) => {
   return (
     <Pressable
       onPress={onPressCard}
-      style={[index % 2 === 0 && styles.cardMarginRight, styles.cardContainer]}>
+      style={[
+        index % 2 === 0 && styles.cardMarginRight,
+        styles.cardContainer,
+        containerStyle,
+      ]}>
       {image && (
         <Image
-          style={{height: 100, width: 100, marginBottom: 8}}
+          style={[{height: 100, width: 100, marginBottom: 8}, imageStyle]}
           source={image}
         />
       )}
-      {title && <Text style={styles.cardTitle}>{title}</Text>}
-      {subTitle && <Text style={styles.cardSubTitle}>{subTitle}</Text>}
+      {title && <Text style={[fontStyle.h3, styles.cardTitle]}>{title}</Text>}
+      {subTitle && (
+        <Text style={[fontStyle.body3, styles.cardSubTitle]}>{subTitle}</Text>
+      )}
     </Pressable>
   );
 };
