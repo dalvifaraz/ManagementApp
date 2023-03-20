@@ -1,7 +1,5 @@
 import {
   FlatList,
-  Modal,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
@@ -10,7 +8,7 @@ import {
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import {commonStyle} from '../../style/commonStyle';
-import {AttendanceScreen, StaffScreenConstant} from '../../utils/constant';
+import {StaffScreenConstant} from '../../utils/constant';
 import HorizontalCard from '../../components/HorizontalCard';
 import Button from '../../components/Button';
 import ModalComponent from '../../components/ModalComponent';
@@ -38,10 +36,8 @@ const StaffScreen = () => {
   }, []);
   const handleModalButtonDisable = () => {
     if (staffName.length && staffPhoneNumber.length) {
-      console.log('HELLO1');
       return false;
     }
-    console.log('HELLO2');
     return true;
   };
   const handleModalButtonPress = () => {
@@ -54,63 +50,35 @@ const StaffScreen = () => {
       <ModalComponent
         visible={addStaffModal}
         setVisible={setAddStaffModal}
-        modalTitle="Add Staff"
-        buttonTitle="Continue"
+        modalTitle={StaffScreenConstant.addStaff}
+        buttonTitle={StaffScreenConstant.continue}
         buttonDisable={handleModalButtonDisable()}
         handleButtonPress={() => handleModalButtonPress()}
-        bodyContainerStyle={{marginTop: 16}}
+        bodyContainerStyle={styles.modalBodyContainer}
         body={
           <>
             <View>
-              <Text
-                style={[
-                  fontStyle.h2,
-                  {color: colors.gray500, marginVertical: 4},
-                ]}>
-                Enter Staff Name:
+              <Text style={[fontStyle.h2, styles.label]}>
+                {StaffScreenConstant.nameLabel}
               </Text>
               <TextInput
                 onChangeText={setStaffName}
                 value={staffName}
-                placeholder="Enter Full Name"
+                placeholder={StaffScreenConstant.namePlaceHolder}
                 keyboardType="default"
-                style={[
-                  fontStyle.h2,
-                  {
-                    borderColor: colors.gray500,
-                    borderWidth: 1,
-                    marginVertical: 4,
-                    borderRadius: 8,
-                    padding: 4,
-                    color: colors.gray1000,
-                  },
-                ]}
+                style={[fontStyle.h2, styles.inputBox]}
               />
             </View>
-            <View style={{marginTop: 16}}>
-              <Text
-                style={[
-                  fontStyle.h2,
-                  {color: colors.gray500, marginVertical: 4},
-                ]}>
-                Enter Staff Contact Number:
+            <View style={styles.contactNumberContainer}>
+              <Text style={[fontStyle.h2, styles.label]}>
+                {StaffScreenConstant.contactNumberLabel}
               </Text>
               <TextInput
                 onChangeText={setStaffPhoneNumber}
                 value={staffPhoneNumber}
-                placeholder="Phone Number"
+                placeholder={StaffScreenConstant.contactPlaceHolder}
                 keyboardType="numeric"
-                style={[
-                  fontStyle.h2,
-                  {
-                    borderColor: colors.gray500,
-                    borderWidth: 1,
-                    marginVertical: 4,
-                    borderRadius: 8,
-                    padding: 4,
-                    color: colors.gray1000,
-                  },
-                ]}
+                style={[fontStyle.h2, styles.inputBox]}
               />
             </View>
           </>
@@ -150,4 +118,23 @@ const StaffScreen = () => {
 
 export default StaffScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  inputBox: {
+    borderColor: colors.gray500,
+    borderWidth: 1,
+    marginVertical: 4,
+    borderRadius: 8,
+    padding: 4,
+    color: colors.gray1000,
+  },
+  label: {
+    color: colors.gray500,
+    marginVertical: 4,
+  },
+  modalBodyContainer: {
+    marginTop: 16,
+  },
+  contactNumberContainer: {
+    marginTop: 16,
+  },
+});

@@ -48,6 +48,7 @@ export const AttendanceScreen = {
 export const StaffScreenConstant = {
   title: 'Staff Details',
   addStaff: 'Add Staff',
+  continue: 'Continue',
   staffName: 'Staff Name:',
   status: 'Status: Not Marked!',
   total: 'Total',
@@ -85,6 +86,10 @@ export const StaffScreenConstant = {
       advance: 3230,
     },
   ],
+  contactNumberLabel: 'Enter Staff Contact Number:',
+  nameLabel: 'Enter Staff Name:',
+  namePlaceHolder: 'Enter Full Name',
+  contactPlaceHolder: 'Phone Number',
 };
 export const AttendanceScreenConstant = {
   title: 'Attendance Details',
