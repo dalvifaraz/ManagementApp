@@ -3,10 +3,18 @@ import React from 'react';
 import colors from '../utils/colors';
 import {fontStyle} from '../style/fontStyle';
 
-const Button = ({variant, title, containerStyle, titleStyle, buttonClick}) => {
+const Button = ({
+  variant,
+  title,
+  containerStyle,
+  titleStyle,
+  buttonClick,
+  disable,
+}) => {
   return (
     <View style={containerStyle}>
       <Pressable
+        disabled={disable}
         onPress={buttonClick}
         style={[
           styles.buttonContainerStyle,

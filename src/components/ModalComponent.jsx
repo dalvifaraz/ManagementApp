@@ -1,6 +1,8 @@
 import {
+  Image,
   // Button,
   Modal,
+  Pressable,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -23,6 +25,8 @@ export default ModalComponent = ({
   modalContainerStyle,
   headerContainerStyle,
   headerStyle,
+  buttonDisable,
+  handleButtonPress,
 }) => {
   return (
     <Modal
@@ -31,13 +35,24 @@ export default ModalComponent = ({
       onRequestClose={() => setVisible(false)}>
       <SafeAreaView style={[styles.modalContainer, modalContainerStyle]}>
         <View style={[styles.header, headerContainerStyle]}>
-          <Text style={[fontStyle.h3, styles.title, headerStyle]}>
+          <Pressable onPress={() => setVisible(false)}>
+            <Image
+              source={require('../images/backicon.png')}
+              alt="backicon"
+              style={{height: 24, width: 24}}
+            />
+          </Pressable>
+          <Text style={[fontStyle.h1, styles.title, headerStyle]}>
             {modalTitle}
           </Text>
         </View>
         <View style={bodyContainerStyle}>{body}</View>
         <View style={[styles.buttonContainer, buttonContainerStyle]}>
-          <Button title={buttonTitle} buttonClick={() => setVisible(false)} />
+          <Button
+            title={buttonTitle}
+            disable={buttonDisable}
+            buttonClick={handleButtonPress}
+          />
         </View>
       </SafeAreaView>
     </Modal>
@@ -45,10 +60,13 @@ export default ModalComponent = ({
 };
 
 const styles = StyleSheet.create({
-  header: {},
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   title: {
     color: colors.gray1000,
-    textAlign: 'center',
+    marginLeft: 115,
   },
   buttonContainer: {flex: 1, justifyContent: 'flex-end'},
   modalContainer: {
