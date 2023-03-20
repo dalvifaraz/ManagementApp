@@ -47,6 +47,44 @@ export const AttendanceScreen = {
 
 export const StaffScreenConstant = {
   title: 'Staff Details',
+  addStaff: 'Add Staff',
+  staffName: 'Staff Name:',
+  status: 'Status: Not Marked!',
+  total: 'Total',
+  advance: 'Advance',
+  balance: 'Balance',
+  staffDetails: [
+    {
+      id: 1,
+      name: 'ABC XYZ',
+      balance: 0,
+      advance: 4000,
+    },
+    {
+      id: 2,
+      name: 'ABC XYZ',
+      balance: 0,
+      advance: 2000,
+    },
+    {
+      id: 3,
+      name: 'ABC XYZ',
+      balance: 500,
+      advance: 0,
+    },
+    {
+      id: 4,
+      name: 'ABC XYZ',
+      balance: 1000,
+      advance: 0,
+    },
+    {
+      id: 5,
+      name: 'ABC XYZ',
+      balance: 0,
+      advance: 3230,
+    },
+  ],
 };
 export const AttendanceScreenConstant = {
   title: 'Attendance Details',

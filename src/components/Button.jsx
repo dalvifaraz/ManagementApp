@@ -1,25 +1,27 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import colors from '../utils/colors';
 import {fontStyle} from '../style/fontStyle';
 
-const Button = ({variant, title, containerStyle, titleStyle}) => {
+const Button = ({variant, title, containerStyle, titleStyle, buttonClick}) => {
   return (
-    <View
-      style={[
-        styles.buttonContainerStyle,
-        variant === 'filled' && styles.filledButtonContainerStyle,
-        containerStyle,
-      ]}>
-      <Text
+    <View style={containerStyle}>
+      <Pressable
+        onPress={buttonClick}
         style={[
-          fontStyle.h1,
-          styles.buttonNameStyle,
-          variant === 'filled' && styles.filledButtonNameStyle,
-          titleStyle,
+          styles.buttonContainerStyle,
+          variant === 'filled' && styles.filledButtonContainerStyle,
         ]}>
-        {title}
-      </Text>
+        <Text
+          style={[
+            fontStyle.h1,
+            styles.buttonNameStyle,
+            variant === 'filled' && styles.filledButtonNameStyle,
+            titleStyle,
+          ]}>
+          {title}
+        </Text>
+      </Pressable>
     </View>
   );
 };

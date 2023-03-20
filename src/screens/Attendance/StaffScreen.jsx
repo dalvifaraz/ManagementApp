@@ -1,48 +1,87 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import {
+  FlatList,
+  Modal,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
+import React, {useState, useEffect} from 'react';
 import {commonStyle} from '../../style/commonStyle';
 import {AttendanceScreen, StaffScreenConstant} from '../../utils/constant';
 import HorizontalCard from '../../components/HorizontalCard';
 import Button from '../../components/Button';
+import ModalComponent from '../../components/ModalComponent';
 
 const StaffScreen = () => {
+  const [staffDetails, setStaffDetails] = useState([]);
+  const [addStaffModal, setAddStaffModal] = useState(false);
+  const [staffName, setStaffName] = React.useState('');
+  const [staffPhoneNumber, setStaffPhoneNumber] = React.useState('');
+
+  const customAmountColor = amt => {
+    if (amt > 0) {
+      return {
+        color: 'green',
+      };
+    }
+    return {
+      color: 'red',
+    };
+  };
+  useEffect(() => {
+    setStaffDetails(StaffScreenConstant.staffDetails);
+  }, []);
   return (
-    <View style={commonStyle.backgroundStyle}>
+    <ScrollView style={commonStyle.backgroundStyle}>
+      <ModalComponent
+        visible={addStaffModal}
+        setVisible={setAddStaffModal}
+        modalTitle="Add Staff"
+        buttonTitle="Continue"
+        body={
+          <>
+            <Text>HELLO</Text>
+            <TextInput
+              onChangeText={setStaffPhoneNumber}
+              value={staffPhoneNumber}
+              placeholder="Enter Contact"
+              keyboardType="numeric"
+            />
+          </>
+        }
+      />
       <Button
-        title="Add Staff"
+        title={StaffScreenConstant.addStaff}
         variant="filled"
         containerStyle={{marginVertical: 8}}
+        buttonClick={() => setAddStaffModal(true)}
       />
-      <Button title="Add Staff" containerStyle={{marginVertical: 8}} />
       <Text style={[commonStyle.titleStyle]}>{StaffScreenConstant.title}</Text>
-      <HorizontalCard
-        leftTitle="Staff Name: Faraz Dalvi"
-        leftSubTitle="Status: Not Marked!"
-        rightTitle="Total"
-        rightSubContainerTitle="2000"
-        rightSubContainerSubTitle="Advance"
+      <FlatList
+        data={staffDetails}
+        renderItem={({item}) => (
+          <HorizontalCard
+            leftTitle={`${StaffScreenConstant.staffName} ${item.name}`}
+            leftSubTitle={StaffScreenConstant.status}
+            rightTitle={StaffScreenConstant.total}
+            rightSubContainerTitle={
+              item.advance > 0 ? item.advance : item.balance
+            }
+            rightSubContainerTitleStyle={customAmountColor(item.advance)}
+            rightSubContainerSubTitle={
+              item.advance > 0
+                ? StaffScreenConstant.advance
+                : StaffScreenConstant.balance
+            }
+            rightSubContainerSubTitleStyle={customAmountColor(item.advance)}
+          />
+        )}
+        keyExtractor={item => item.id}
       />
-      <HorizontalCard
-        leftTitle="Staff Name: AXAXS SFDAS"
-        leftSubTitle="Status: Present!"
-        rightTitle="Total"
-        rightSubContainerTitle="2000"
-        rightSubContainerSubTitle="Balance"
-      />
-      <HorizontalCard
-        leftTitle="Staff Name: ASFDA vbxvc"
-        leftSubTitle="Status: Absent!"
-        rightTitle="Total"
-        rightSubTitle="HELLO"
-      />
-      <HorizontalCard
-        leftTitle="Staff Name: poj vtyu"
-        leftSubTitle="Status: Not Marked!"
-        // rightTitle="Total"
-        // rightSubTitle="HELLO"
-        rightSubContainerTitle="Welcome"
-      />
-    </View>
+    </ScrollView>
   );
 };
 
