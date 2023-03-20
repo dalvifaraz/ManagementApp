@@ -48,12 +48,15 @@ export const AttendanceScreen = {
 export const StaffScreenConstant = {
   title: 'Staff Details',
   addStaff: 'Add Staff',
+  paymentLog: 'Payment Log',
   continue: 'Continue',
   staffName: 'Staff Name:',
   status: 'Status: Not Marked!',
   total: 'Total',
   advance: 'Advance',
   balance: 'Balance',
+  totalBalance: 'Total Balance :',
+  makePayment: 'Make Payment',
   staffDetails: [
     {
       id: 1,

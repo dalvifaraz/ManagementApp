@@ -46,7 +46,7 @@ const StaffScreen = () => {
     setAddStaffModal(false);
   };
   return (
-    <ScrollView style={commonStyle.backgroundStyle}>
+    <ScrollView bounces={false} style={commonStyle.backgroundStyle}>
       <ModalComponent
         visible={addStaffModal}
         setVisible={setAddStaffModal}
@@ -84,13 +84,42 @@ const StaffScreen = () => {
           </>
         }
       />
-      <Button
-        title={StaffScreenConstant.addStaff}
-        variant="filled"
-        containerStyle={{marginVertical: 8}}
-        buttonClick={() => setAddStaffModal(true)}
-      />
-      <Text style={[commonStyle.titleStyle]}>{StaffScreenConstant.title}</Text>
+      <View style={styles.totalBalanceContainer}>
+        <View style={styles.balanceAmountContainer}>
+          <Text style={[fontStyle.h10, styles.totalBalanceTitle]}>
+            {StaffScreenConstant.totalBalance}
+          </Text>
+          <Text style={[fontStyle.h10, styles.balanceAmountStyle]}>
+            (-) ₹ 1500
+          </Text>
+        </View>
+        <View style={styles.balanceButtonContainer}>
+          <Button
+            title={StaffScreenConstant.paymentLog}
+            variant="filled"
+            containerStyle={styles.balanceButtonStyle}
+            // buttonClick={() => setAddStaffModal(true)}
+          />
+          <Button
+            title={StaffScreenConstant.makePayment}
+            variant="filled"
+            containerStyle={styles.balanceButtonStyle}
+            // buttonClick={() => setAddStaffModal(true)}
+          />
+        </View>
+      </View>
+
+      <View style={styles.staffDetailsHeader}>
+        <Text style={[commonStyle.titleStyle]}>
+          {StaffScreenConstant.title}
+        </Text>
+        <Button
+          title={StaffScreenConstant.addStaff}
+          variant="filled"
+          containerStyle={styles.addStaffButton}
+          buttonClick={() => setAddStaffModal(true)}
+        />
+      </View>
       <FlatList
         data={staffDetails}
         renderItem={({item}) => (
@@ -137,4 +166,27 @@ const styles = StyleSheet.create({
   contactNumberContainer: {
     marginTop: 16,
   },
+  totalBalanceContainer: {
+    borderColor: colors.gray500,
+    borderWidth: 1,
+    paddingHorizontal: 8,
+    borderRadius: 8,
+    marginTop: 8,
+  },
+  balanceAmountContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 8,
+    alignItems: 'center',
+  },
+  totalBalanceTitle: {color: colors.gray1000},
+  balanceAmountStyle: {color: 'red'},
+  balanceButtonContainer: {flexDirection: 'row'},
+  balanceButtonStyle: {marginVertical: 8, flex: 1},
+  staffDetailsHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  addStaffButton: {marginVertical: 8, flex: 0.5},
 });
