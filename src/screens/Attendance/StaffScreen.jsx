@@ -43,7 +43,6 @@ const StaffScreen = () => {
         buttonTitle="Continue"
         body={
           <>
-            <Text>HELLO</Text>
             <TextInput
               onChangeText={setStaffPhoneNumber}
               value={staffPhoneNumber}

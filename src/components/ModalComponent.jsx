@@ -18,31 +18,26 @@ export default ModalComponent = ({
   animation,
   modalTitle,
   buttonTitle,
+  bodyContainerStyle,
+  buttonContainerStyle,
+  modalContainerStyle,
+  headerContainerStyle,
+  headerStyle,
 }) => {
   return (
     <Modal
       visible={visible}
       animationType={animation || 'slide'}
       onRequestClose={() => setVisible(false)}>
-      <SafeAreaView
-        style={{
-          flex: 1,
-          marginHorizontal: 16,
-        }}>
-        <View style={styles.header}>
-          <Text style={[fontStyle.h3, styles.title]}>{modalTitle}</Text>
+      <SafeAreaView style={[styles.modalContainer, modalContainerStyle]}>
+        <View style={[styles.header, headerContainerStyle]}>
+          <Text style={[fontStyle.h3, styles.title, headerStyle]}>
+            {modalTitle}
+          </Text>
         </View>
-        <View style={{borderColor: 'red', borderWidth: 1}}>{body}</View>
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'flex-end',
-          }}>
-          <Button
-            title={buttonTitle}
-            containerStyle={{marginBottom: 0}}
-            buttonClick={() => setVisible(false)}
-          />
+        <View style={bodyContainerStyle}>{body}</View>
+        <View style={[styles.buttonContainer, buttonContainerStyle]}>
+          <Button title={buttonTitle} buttonClick={() => setVisible(false)} />
         </View>
       </SafeAreaView>
     </Modal>
@@ -50,12 +45,14 @@ export default ModalComponent = ({
 };
 
 const styles = StyleSheet.create({
-  header: {
-    borderColor: 'red',
-    borderWidth: 1,
-  },
+  header: {},
   title: {
     color: colors.gray1000,
     textAlign: 'center',
+  },
+  buttonContainer: {flex: 1, justifyContent: 'flex-end'},
+  modalContainer: {
+    flex: 1,
+    marginHorizontal: 16,
   },
 });
