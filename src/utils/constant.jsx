@@ -108,6 +108,13 @@ export const StaffScreenConstant = {
 };
 export const AttendanceScreenConstant = {
   title: 'Attendance Details',
+  staffDetails: 'Staff Details',
+  nameLabel: 'Name',
+  notMarked: 'not marked*',
+  present: 'Present',
+  absent: 'Absent',
+  halfDay: 'Half-Day',
+  reset: 'Reset',
 };
 export const SettingsScreenConstant = {
   title: 'Settings',

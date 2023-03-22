@@ -1,13 +1,12 @@
 import {
   FlatList,
   SafeAreaView,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from 'react-native';
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {commonStyle} from '../../style/commonStyle';
 import {StaffScreenConstant} from '../../utils/constant';
 import HorizontalCard from '../../components/HorizontalCard';
@@ -17,7 +16,9 @@ import {fontStyle} from '../../style/fontStyle';
 import colors from '../../utils/colors';
 
 const StaffScreen = () => {
-  const [staffDetails, setStaffDetails] = useState([]);
+  const [staffDetails, setStaffDetails] = useState(
+    StaffScreenConstant.staffDetails,
+  );
   const [addStaffModal, setAddStaffModal] = useState(false);
   const [staffName, setStaffName] = React.useState('');
   const [staffPhoneNumber, setStaffPhoneNumber] = React.useState('');
@@ -32,9 +33,6 @@ const StaffScreen = () => {
       color: 'red',
     };
   };
-  useEffect(() => {
-    setStaffDetails(StaffScreenConstant.staffDetails);
-  }, []);
   const handleModalButtonDisable = () => {
     if (staffName.length && staffPhoneNumber.length) {
       return false;
