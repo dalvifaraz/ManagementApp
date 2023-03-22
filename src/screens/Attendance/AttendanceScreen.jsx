@@ -73,9 +73,9 @@ const AttendanceScreen = () => {
   };
   return (
     <View style={styles.attendanceScreen}>
-      <Text style={[commonStyle.titleStyle]}>
+      {/* <Text style={[commonStyle.titleStyle]}>
         {AttendanceScreenConstant.title}
-      </Text>
+      </Text> */}
       {dateModal && (
         <CalendarList
           pastScrollRange={12}
@@ -91,8 +91,8 @@ const AttendanceScreen = () => {
           markedDates={{
             [date]: {
               customStyles: {
-                container: calendarCustomContainerStyle,
-                text: calendarCustomTextStyle,
+                container: styles.calendarCustomContainerStyle,
+                text: styles.calendarCustomContainerStylecalendarCustomTextStyle,
               },
             },
           }}
@@ -165,14 +165,16 @@ const styles = StyleSheet.create({
   date: {
     color: colors.gray1000,
     textAlign: 'center',
+    marginVertical: 8,
   },
   attendanceScreen: {
     flex: 1,
     backgroundColor: colors.gray100,
+    paddingTop: 8,
   },
   attendaceDetailContainer: {
     flex: 1,
     marginHorizontal: 16,
   },
-  staffDetailCardContainer: {marginTop: 16, flex: 1},
+  staffDetailCardContainer: {flex: 1},
 });

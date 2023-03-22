@@ -118,6 +118,14 @@ export const AttendanceScreenConstant = {
 };
 export const SettingsScreenConstant = {
   title: 'Settings',
+  list: [
+    {id: 1, name: 'Help'},
+    {id: 2, name: 'About'},
+    {id: 3, name: 'Contact'},
+    {id: 4, name: 'Language'},
+    {id: 5, name: 'Theme'},
+    {id: 6, name: 'Profile'},
+  ],
 };
 
 export const NavigationRoutes = {

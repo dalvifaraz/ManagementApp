@@ -13,7 +13,9 @@ const AttendanceHome = () => {
     <>
       <Tab.Navigator
         screenOptions={{
-          headerShown: false,
+          headerStyle: {
+            backgroundColor: colors.gray100,
+          },
         }}>
         <Tab.Screen name="Staff" component={StaffScreen} />
         <Tab.Screen name="Attendance" component={AttendanceScreen} />

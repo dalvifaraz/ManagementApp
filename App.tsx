@@ -25,9 +25,10 @@ function App(): JSX.Element {
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
-            headerStyle: {
-              backgroundColor: colors.gray100,
-            },
+            // headerStyle: {
+            //   backgroundColor: colors.gray100,
+            // },
+            headerShown: false,
           }}>
           <Stack.Screen name={NavigationRoutes.Main} component={Main} />
           <Stack.Screen
