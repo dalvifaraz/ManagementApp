@@ -119,12 +119,12 @@ export const AttendanceScreenConstant = {
 export const SettingsScreenConstant = {
   title: 'Settings',
   list: [
-    {id: 1, name: 'Help'},
-    {id: 2, name: 'About'},
-    {id: 3, name: 'Contact'},
-    {id: 4, name: 'Language'},
-    {id: 5, name: 'Theme'},
-    {id: 6, name: 'Profile'},
+    {id: 1, name: 'Help', navigation: 'Help'},
+    {id: 2, name: 'About', navigation: 'About'},
+    {id: 3, name: 'Contact', navigation: 'Contact'},
+    {id: 4, name: 'Language', navigation: 'Language'},
+    {id: 5, name: 'Theme', navigation: 'Theme'},
+    {id: 6, name: 'Profile', navigation: 'Profile'},
   ],
 };
 
