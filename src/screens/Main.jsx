@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {FlatList, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {MainScreen} from '../utils/constant';
 import Card from '../components/Card';
@@ -9,7 +9,7 @@ const Main = ({navigation}) => {
     navigation.navigate(name);
   };
   return (
-    <View style={commonStyle.backgroundStyle}>
+    <SafeAreaView style={commonStyle.backgroundStyle}>
       <Text style={[commonStyle.titleStyle]}>{MainScreen.mainScreenTitle}</Text>
       <FlatList
         data={MainScreen.AppList}
@@ -25,7 +25,7 @@ const Main = ({navigation}) => {
         keyExtractor={item => item.id}
         numColumns="2"
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

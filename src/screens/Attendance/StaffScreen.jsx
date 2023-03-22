@@ -1,5 +1,6 @@
 import {
   FlatList,
+  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
@@ -46,7 +47,7 @@ const StaffScreen = () => {
     setAddStaffModal(false);
   };
   return (
-    <ScrollView bounces={false} style={commonStyle.backgroundStyle}>
+    <SafeAreaView style={commonStyle.backgroundStyle}>
       <ModalComponent
         visible={addStaffModal}
         setVisible={setAddStaffModal}
@@ -121,6 +122,7 @@ const StaffScreen = () => {
         />
       </View>
       <FlatList
+        showsVerticalScrollIndicator={false}
         data={staffDetails}
         renderItem={({item}) => (
           <HorizontalCard
@@ -141,7 +143,7 @@ const StaffScreen = () => {
         )}
         keyExtractor={item => item.id}
       />
-    </ScrollView>
+    </SafeAreaView>
   );
 };
 

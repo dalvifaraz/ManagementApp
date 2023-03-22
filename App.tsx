@@ -23,12 +23,22 @@ function App(): JSX.Element {
   return (
     <View style={styles.appContainer}>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: colors.gray100,
+            },
+          }}>
           <Stack.Screen name={NavigationRoutes.Main} component={Main} />
           <Stack.Screen
             name={NavigationRoutes.AttendanceHome}
             component={AttendanceHome}
-            options={{title: 'Attendace'}}
+            options={{
+              title: 'Attendace',
+              headerStyle: {
+                backgroundColor: colors.gray100,
+              },
+            }}
           />
           <Stack.Screen name={NavigationRoutes.IRCTC} component={Irctc} />
           <Stack.Screen name={NavigationRoutes.Default} component={Default} />

@@ -7,6 +7,7 @@ const Button = ({
   variant,
   title,
   containerStyle,
+  buttonContainerStyle,
   titleStyle,
   buttonClick,
   disable,
@@ -18,6 +19,7 @@ const Button = ({
         onPress={buttonClick}
         style={[
           styles.buttonContainerStyle,
+          buttonContainerStyle,
           variant === 'filled' && styles.filledButtonContainerStyle,
         ]}>
         <Text

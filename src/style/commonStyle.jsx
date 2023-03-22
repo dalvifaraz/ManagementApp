@@ -5,7 +5,7 @@ export const commonStyle = StyleSheet.create({
   backgroundStyle: {
     flex: 1,
     backgroundColor: colors.gray100,
-    paddingHorizontal: 16,
+    marginHorizontal: 16,
   },
   titleStyle: {
     textAlign: 'center',
