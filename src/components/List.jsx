@@ -1,26 +1,28 @@
-import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
+import {Image, Pressable, StyleSheet, Switch, Text, View} from 'react-native';
 import React from 'react';
-import {SettingsScreenConstant} from '../utils/constant';
 import {fontStyle} from '../style/fontStyle';
 
-const List = ({name, index, handleOnPress}) => {
+const List = ({name, index, handleOnPress, type, length, switchValue}) => {
   return (
     <View
       key={index}
       style={[
-        SettingsScreenConstant.list.length - 1 !== index && {
+        length - 1 !== index && {
           borderBottomColor: colors.gray200,
           borderBottomWidth: 2,
         },
         styles.listContainer,
       ]}>
       <Text style={[fontStyle.h4, styles.listTitle]}>{name}</Text>
-      <Pressable onPress={() => handleOnPress()}>
-        <Image
-          source={require('../images/backicon.png')}
-          style={styles.arrow}
-        />
-      </Pressable>
+      {type === 'navigation' && (
+        <Pressable onPress={() => handleOnPress()}>
+          <Image
+            source={require('../images/backicon.png')}
+            style={styles.arrow}
+          />
+        </Pressable>
+      )}
+      {type === 'switch' && <Switch disabled value={switchValue} />}
     </View>
   );
 };

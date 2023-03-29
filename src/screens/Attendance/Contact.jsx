@@ -1,10 +1,11 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import {commonStyle} from '../../style/commonStyle';
 
 const Contact = () => {
   return (
     <View>
-      <Text>Contact</Text>
+      <Text style={[commonStyle.titleStyle]}>Contact</Text>
     </View>
   );
 };

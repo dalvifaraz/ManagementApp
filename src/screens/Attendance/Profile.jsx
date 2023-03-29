@@ -1,10 +1,11 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import {commonStyle} from '../../style/commonStyle';
 
 const Profile = () => {
   return (
     <View>
-      <Text>Profile</Text>
+      <Text style={[commonStyle.titleStyle]}>Profile</Text>
     </View>
   );
 };

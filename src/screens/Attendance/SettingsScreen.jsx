@@ -16,6 +16,8 @@ const SettingsScreen = ({navigation}) => {
           <List
             name={item.name}
             index={index}
+            type="navigation"
+            length={SettingsScreenConstant.list.length}
             handleOnPress={() => handleNavigation(item.navigation)}
           />
         );

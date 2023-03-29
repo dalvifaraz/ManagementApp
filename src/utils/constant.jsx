@@ -135,3 +135,55 @@ export const NavigationRoutes = {
   Default: 'Default',
   Components: 'Components',
 };
+
+export const LanguageScreenConstant = {
+  list: [
+    {
+      id: 1,
+      name: 'Hindi',
+      selected: false,
+      disable: true,
+    },
+    {
+      id: 2,
+      name: 'English',
+      selected: true,
+      disable: true,
+    },
+    {
+      id: 3,
+      name: 'Marathi',
+      selected: false,
+      disable: true,
+    },
+    {
+      id: 4,
+      name: 'Urdu',
+      selected: false,
+      disable: true,
+    },
+  ],
+};
+
+export const ThemeScreenConstant = {
+  list: [
+    {
+      id: 1,
+      name: 'Dark',
+      selected: false,
+      disable: true,
+    },
+    {
+      id: 2,
+      name: 'Light',
+      selected: true,
+      disable: true,
+    },
+    {
+      id: 3,
+      name: 'Reading',
+      selected: false,
+      disable: true,
+    },
+  ],
+};
